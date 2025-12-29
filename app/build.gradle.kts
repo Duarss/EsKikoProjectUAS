@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.eskikoprojectuas"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.eskikoprojectuas"
         minSdk = 27
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
