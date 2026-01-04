@@ -7,11 +7,11 @@ import androidx.room.PrimaryKey
 @Entity
 data class Anak(
     @ColumnInfo(name="weight")
-    var weight:Double,
+    var weight:String,
     @ColumnInfo(name="height")
-    var height:Double,
+    var height:String,
     @ColumnInfo(name="usia")
-    var usia:Int
+    var usia:String
 ) {
     @PrimaryKey(autoGenerate = true)
     var uuid: Int = 0

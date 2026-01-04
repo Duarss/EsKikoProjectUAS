@@ -12,6 +12,13 @@ interface AnakDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAll(vararg anak: Anak)
 
+    @Query("SELECT * FROM anak")
+    fun selectAllAnak(): List<Anak>
 
+    @Query("SELECT * FROM anak WHERE uuid= :id")
+    fun selectAnak(id:Int): Anak
+
+    @Delete
+    fun deleteAnak(anak:Anak)
 
 }
