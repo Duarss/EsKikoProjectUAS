@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eskikoprojectuas.databinding.DataListItemBinding
+import com.example.eskikoprojectuas.model.Anak
 
 class DataListAdapter (val dataList: ArrayList<Anak>)
     :RecyclerView.Adapter<DataListAdapter.DataViewHolder>()

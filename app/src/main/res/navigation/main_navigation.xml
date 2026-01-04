@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/itemUkur"
-        android:name="com.example.eskikoprojectuts.view.UkurFragment"
+        android:name="com.example.eskikoprojectuas.view.UkurFragment"
         android:label="fragment_ukur"
         tools:layout="@layout/fragment_ukur" />
     <fragment
         android:id="@+id/itemData"
-        android:name="com.example.eskikoprojectuts.view.DataListFragment"
+        android:name="com.example.eskikoprojectuas.view.DataListFragment"
         android:label="fragment_data_list"
         tools:layout="@layout/fragment_data_list" />
     <fragment
         android:id="@+id/itemProfile"
-        android:name="com.example.eskikoprojectuts.view.ProfileFragment"
+        android:name="com.example.eskikoprojectuas.view.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>

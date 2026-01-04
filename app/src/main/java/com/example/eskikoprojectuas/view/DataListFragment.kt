@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.eskikoprojectuas.databinding.FragmentDataListBinding
-import com.example.eskikoprojectuts.viewmodel.DataListViewModel
+import com.example.eskikoprojectuas.viewmodel.DataListViewModel
 
 class DataListFragment : Fragment() {
     private lateinit var binding: FragmentDataListBinding
