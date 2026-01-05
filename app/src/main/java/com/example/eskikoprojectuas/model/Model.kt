@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName="anak")
 data class Anak(
     @ColumnInfo(name="weight")
     var weight:String,
@@ -14,5 +14,5 @@ data class Anak(
     var usia:String
 ) {
     @PrimaryKey(autoGenerate = true)
-    var uuid: Int = 0
+    var uuid:Int=0
 }

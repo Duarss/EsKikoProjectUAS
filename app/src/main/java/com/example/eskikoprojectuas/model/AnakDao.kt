@@ -13,10 +13,16 @@ interface AnakDao {
     fun insertAll(vararg anak: Anak)
 
     @Query("SELECT * FROM anak")
-    fun selectAllAnak(): List<Anak>
+    fun selectAll(): List<Anak>
 
     @Query("SELECT * FROM anak WHERE uuid= :id")
-    fun selectAnak(id:Int): Anak
+    fun selectAnak(id: Int): Anak
+
+//    @Query("UPDATE anak SET weight = :weight, height = :height, usia = :usia WHERE uuid = :id")
+//    fun updateAnak(weight:String, height:String, usia:String, id:Int)
+
+    @Update
+    fun updateAnak(anak:Anak)
 
     @Delete
     fun deleteAnak(anak:Anak)
