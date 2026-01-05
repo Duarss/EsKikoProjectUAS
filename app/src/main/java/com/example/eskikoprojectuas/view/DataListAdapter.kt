@@ -1,35 +1,40 @@
 package com.example.eskikoprojectuas.view
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.eskikoprojectuas.databinding.DataListItemBinding
 import com.example.eskikoprojectuas.model.Anak
 
-class DataListAdapter (val dataList: ArrayList<Anak>)
-    :RecyclerView.Adapter<DataListAdapter.DataViewHolder>()
-{
-    class DataViewHolder(var binding: DataListItemBinding)
+class DataListAdapter(
+    val dataList: ArrayList<Anak>
+) : RecyclerView.Adapter<DataListAdapter.DataViewHolder>() {
+
+    class DataViewHolder(val binding: DataListItemBinding)
         : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         val binding = DataListItemBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false)
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return DataViewHolder(binding)
     }
 
     override fun getItemCount() = dataList.size
 
-
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-        holder.binding.txtUsia.text = dataList[position].usia.toString()
-        holder.binding.txtHeight.text = dataList[position].height.toString()
-        holder.binding.txtWeight.text = dataList[position].weight.toString()
+        val anak = dataList[position]
 
-
+        holder.binding.txtUsia.text = anak.usia
+        holder.binding.txtHeight.text = anak.height
+        holder.binding.txtWeight.text = anak.weight
     }
 
-    fun updateDataList(newDataList: ArrayList<Anak>) {
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateDataList(newDataList: List<Anak>) {
         dataList.clear()
         dataList.addAll(newDataList)
         notifyDataSetChanged()

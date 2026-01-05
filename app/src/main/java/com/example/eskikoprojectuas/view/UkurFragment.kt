@@ -29,7 +29,7 @@ class UkurFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel =
-            ViewModelProvider(this).get(ListViewModel::class.java)
+            ViewModelProvider(this)[ListViewModel::class.java]
 
         binding.btnTambah.setOnClickListener {
             val berat = binding.txtBerat.text.toString()

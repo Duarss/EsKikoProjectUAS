@@ -22,28 +22,30 @@ import kotlin.coroutines.CoroutineContext
 
 // fragment ukur
 class ListViewModel(application: Application) : AndroidViewModel(application), CoroutineScope {
-
     private val job = Job()
-    val todoLD = MutableLiveData<Anak>()
+    val anakLD = MutableLiveData<Anak>()
 
     fun addAnak(anak: Anak) {
         launch {
-            val db = buildDb(
-                getApplication()
-            )
+            val db = buildDb(getApplication())
             db.anakDao().insertAll(anak)
         }
     }
 
-    fun fetch(uuid:Int) {
+    fun fetch(uuid: Int) {
         launch {
             val db = buildDb(getApplication())
-            todoLD.postValue(db.anakDao().selectAnak(uuid))
+            anakLD.postValue(db.anakDao().selectAnak(uuid))
+        }
+    }
+
+    fun updateAnak(anak: Anak) {
+        launch {
+            val db = buildDb(getApplication())
+            db.anakDao().updateAnak(anak)
         }
     }
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.IO
-
-
 }
