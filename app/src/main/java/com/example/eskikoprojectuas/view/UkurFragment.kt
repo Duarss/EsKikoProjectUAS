@@ -15,7 +15,7 @@ import com.example.eskikoprojectuas.viewmodel.ListViewModel
 import com.google.android.material.snackbar.Snackbar
 
 
-class UkurFragment : Fragment() {
+class UkurFragment : Fragment(), UkurListener {
     private lateinit var viewModel: ListViewModel
     private lateinit var binding: FragmentUkurBinding
 
@@ -29,19 +29,25 @@ class UkurFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel =
-            ViewModelProvider(this)[ListViewModel::class.java]
+            ViewModelProvider(this).get(ListViewModel::class.java)
 
-        binding.btnTambah.setOnClickListener {
-            val berat = binding.txtBerat.text.toString()
-            val tinggi = binding.txtTinggi.text.toString()
-            val usia = binding.txtUsia.text.toString()
+        binding.anak = Anak("", "", "")
+
+        binding.listener = this
+
+
+
+    }
+
+    override fun onClick(v: View) {
+        val berat = binding.txtBerat.text.toString()
+        val tinggi = binding.txtTinggi.text.toString()
+        val usia = binding.txtUsia.text.toString()
 //
-            val anak = Anak(berat, tinggi, usia)
-            viewModel.addAnak(anak)
-            Snackbar.make(it, "Todo created", Snackbar.LENGTH_LONG).show()
-            it.findNavController().popBackStack()
-        }
-
+        val anak = Anak(berat, tinggi, usia)
+        viewModel.addAnak(anak)
+        Snackbar.make(v, "Ukur created", Snackbar.LENGTH_LONG).show()
+        v.findNavController().popBackStack()
     }
 
 }
