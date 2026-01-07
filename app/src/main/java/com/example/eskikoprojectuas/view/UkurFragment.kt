@@ -5,18 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import com.example.eskikoprojectuas.databinding.FragmentUkurBinding
 import com.example.eskikoprojectuas.model.Anak
-import com.example.eskikoprojectuas.viewmodel.ListViewModel
+import com.example.eskikoprojectuas.util.buildDb
+import com.example.eskikoprojectuas.viewmodel.UkurViewModel
 import com.google.android.material.snackbar.Snackbar
-
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class UkurFragment : Fragment(), UkurListener {
-    private lateinit var viewModel: ListViewModel
+    private lateinit var viewModel: UkurViewModel
     private lateinit var binding: FragmentUkurBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -28,26 +30,34 @@ class UkurFragment : Fragment(), UkurListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel =
-            ViewModelProvider(this).get(ListViewModel::class.java)
+        viewModel = ViewModelProvider(this)[UkurViewModel::class.java]
 
         binding.anak = Anak("", "", "")
-
+        binding.vm = viewModel
         binding.listener = this
-
-
-
     }
 
     override fun onClick(v: View) {
         val berat = binding.txtBerat.text.toString()
         val tinggi = binding.txtTinggi.text.toString()
         val usia = binding.txtUsia.text.toString()
-//
-        val anak = Anak(berat, tinggi, usia)
-        viewModel.addAnak(anak)
-        Snackbar.make(v, "Ukur created", Snackbar.LENGTH_LONG).show()
+
+        // Validasi sederhana
+        if (berat.isEmpty() || tinggi.isEmpty() || usia.isEmpty()) {
+            Snackbar.make(v, "Isi berat, tinggi, dan usia terlebih dahulu.", Snackbar.LENGTH_LONG).show()
+            return
+        }
+
+        // Add data ukur
+        viewModel.addUkur(
+            Anak(
+                weight = berat,
+                height = tinggi,
+                usia = usia
+            )
+        )
+
+        Snackbar.make(v, "Data ukur tersimpan.", Snackbar.LENGTH_LONG).show()
         v.findNavController().popBackStack()
     }
-
 }

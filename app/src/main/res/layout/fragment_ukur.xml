@@ -8,6 +8,9 @@
             name="anak"
             type="com.example.eskikoprojectuas.model.Anak" />
         <variable
+            name="vm"
+            type="com.example.eskikoprojectuas.viewmodel.UkurViewModel" />
+        <variable
             name="listener"
             type="com.example.eskikoprojectuas.view.UkurListener" />
     </data>
