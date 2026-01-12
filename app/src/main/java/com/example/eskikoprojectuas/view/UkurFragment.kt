@@ -16,6 +16,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import com.example.eskikoprojectuas.R
 
 class UkurFragment : Fragment(), UkurListener {
     private lateinit var viewModel: UkurViewModel
@@ -58,6 +59,6 @@ class UkurFragment : Fragment(), UkurListener {
         )
 
         Snackbar.make(v, "Data ukur tersimpan.", Snackbar.LENGTH_LONG).show()
-        v.findNavController().popBackStack()
+        v.findNavController().popBackStack(R.id.itemData, false)
     }
 }
