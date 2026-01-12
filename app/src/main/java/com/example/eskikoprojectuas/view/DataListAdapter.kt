@@ -26,11 +26,7 @@ class DataListAdapter(
     override fun getItemCount() = dataList.size
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-        val anak = dataList[position]
-
-        holder.binding.txtUsia.text = anak.usia
-        holder.binding.txtHeight.text = anak.height
-        holder.binding.txtWeight.text = anak.weight
+        holder.binding.anak = dataList[position]
     }
 
     @SuppressLint("NotifyDataSetChanged")
