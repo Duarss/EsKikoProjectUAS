@@ -46,6 +46,22 @@ class ProfileFragment : Fragment(), ProfileListener {
         binding.vm = viewModel
         binding.listener = this
 
+        viewModel.genderLD.observe(viewLifecycleOwner) { gender ->
+            when (gender) {
+                true -> {
+                    binding.btnRadioMale.isChecked = true
+                    binding.btnRadioFemale.isChecked = false
+                }
+                false -> {
+                    binding.btnRadioMale.isChecked = false
+                    binding.btnRadioFemale.isChecked = true
+                }
+                null -> {
+                    binding.btnRadioGenders.clearCheck()
+                }
+            }
+        }
+
         viewModel.loadProfile()
     }
 

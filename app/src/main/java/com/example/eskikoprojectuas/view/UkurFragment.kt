@@ -59,7 +59,6 @@ class UkurFragment : Fragment(), UkurListener {
         )
 
         Snackbar.make(v, "Data ukur tersimpan.", Snackbar.LENGTH_LONG).show()
-//        v.findNavController().popBackStack(R.id.itemData, false)
-        v.findNavController().popBackStack()
+        v.findNavController().popBackStack(R.id.itemData, false)
     }
 }
