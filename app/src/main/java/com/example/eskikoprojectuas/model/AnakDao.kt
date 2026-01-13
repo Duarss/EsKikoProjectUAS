@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import kotlin.uuid.Uuid
+
 
 @Dao
 interface AnakDao {
@@ -15,12 +15,6 @@ interface AnakDao {
 
     @Query("SELECT * FROM anak")
     fun selectAll(): List<Anak>
-
-//    @Query("SELECT * FROM anak WHERE uuid= :id")
-//    fun selectAnak(id: Int): Anak
-
-//    @Query("UPDATE anak SET weight = :weight, height = :height, usia = :usia WHERE uuid = :id")
-//    fun updateAnak(weight:String, height:String, usia:String, id:Int)
 
     @Update
     fun updateAnak(anak:Anak)

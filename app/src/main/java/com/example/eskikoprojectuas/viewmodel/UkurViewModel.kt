@@ -22,19 +22,7 @@ class UkurViewModel(application: Application) : AndroidViewModel(application), C
         }
     }
 
-    fun fetchAll() {
-        launch {
-            val db = buildDb(getApplication())
-            db.anakDao().selectAll()
-        }
-    }
 
-//    fun updateUkur(anak: Anak) {
-//        launch {
-//            val db = buildDb(getApplication())
-//            db.anakDao().updateAnak(anak)
-//        }
-//    }
 
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.IO
