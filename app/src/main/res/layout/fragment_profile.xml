@@ -67,8 +67,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="48dp"
                 android:text="Jenis Kelamin"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.207"
+                app:layout_constraintHorizontal_bias="0.17"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtBoD" />
 
@@ -76,40 +77,40 @@
                 android:id="@+id/btnRadioGenders"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="28dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.219"
+                app:layout_constraintHorizontal_bias="0.18"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lblGender">
 
                 <RadioButton
                     android:id="@+id/btnRadioMale"
-                    android:onClick="@{(v) -> listener.onGenderSelect(v)}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:onClick="@{(v) -> listener.onGenderSelect(v)}"
                     android:text="Laki-Laki" />
 
                 <RadioButton
                     android:id="@+id/btnRadioFemale"
-                    android:onClick="@{(v) -> listener.onGenderSelect(v)}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="@{(v) -> listener.onGenderSelect(v)}"
                     android:text="Perempuan" />
             </RadioGroup>
 
             <Button
                 android:id="@+id/btnSimpan"
-                android:onClick="@{(v) -> listener.onSave(v)}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{(v) -> listener.onSave(v)}"
                 android:text="SIMPAN"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.8"
+                app:layout_constraintHorizontal_bias="0.819"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/btnRadioGenders"
-                app:layout_constraintVertical_bias="0.17" />
+                app:layout_constraintVertical_bias="0.164" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
